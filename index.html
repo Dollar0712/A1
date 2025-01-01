@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <title>Registration Form</title>
+</head>
+<body>
+    <!-- flash animation -->
+    <div class="flash-1"></div>
+    <div class="flash-2"></div>
+
+    <!-- fadein video -->
+    <div class="video-background animate__animated animate__fadeInRight animate__delay-1s">
+        <video  autoplay loop id="video">
+            <source src="assets/media/强风大背头.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <aside class="animate__animated animate__fadeInLeft animate__delay-1s">
+        <h1 id="side-title">A1</h1>
+    </aside>
+
+    <!-- main form -->
+    <div id="form-container" class="animate__animated animate__fadeInRight animate__delay-1s">
+        <form action="" >
+            <header>
+                <h1>Registration</h1>
+            </header>
+            <div class="input-container">
+                <input type="text", id="first-name" name="first-name" placeholder="" required>
+                <label for="first-name">First Name* :</label>
+            </div>
+            <div class="input-container">
+                <input type="text", id="last-name" name="last-name" placeholder="" required>
+                <label for="last-name">Last Name* :</label>
+            </div>
+            <div class="input-container">
+                <input type="email", id="email-address" name="email" placeholder="" required>
+                <label for="email-address">Email* :</label>
+            </div>
+            <div class="input-container">
+                <input type="password", id="password" name="password" minlength="8" placeholder="" required>
+                <label for="password">Password* :</label>
+                <img src="" class="password-icon" alt="Validation Icon">
+            </div>
+            <div class="input-container">
+                <input type="password", id="confirm-password" minlength="8" placeholder="" required>
+                <label for="confirm-password">Confirm New Password* :</label>
+                <img src="" class="password-icon" id="confirm-password-icon" alt="Validation Icon">
+            </div>
+            <div id="birthday" class="input-container">
+                <label for="birthday">Date of Birth:</label>
+                <input type="date" id="birthday-input" name="birthday" placeholder="">
+            </div>
+            <div id="gender" class="input-container" required>
+                <p id="title">Gender* : </p>
+                <label for="male">Male</label>
+                <input type="radio" id="male" name="gender" value="male" required> 
+                <label for="female">Female</label>
+                <input type="radio" id="female" name="gender" value="female"> 
+                <label for="other">Other</label>
+                <input type="radio" id="other" name="gender" value="other"> 
+            </div>
+            <div id="about" class="input-container">
+                <label for="about-me">About Me:</label>
+                <textarea name="about-me" id="about-me" rows="8" minlength="8" placeholder="Write something here..."></textarea>
+            </div>
+            <div id="profession" class="input-container">
+                <label for="profession-label">Profession* :</label>
+                <select name="profession" id="profession-label" required>
+                    <option value="" disabled selected>Please choose Your Profession</option>
+                    <option value="front-end">Front-End developer</option>
+                    <option value="back-end">Back-End developer</option>
+                    <option value="full-stack">Full-Stack developer</option>
+                    <option value="computer-repairman">Computer repairman</option>
+                </select>
+            </div>
+            <div id="submit">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- video volumn bar -->
+    <div class="volume-control animate__animated animate__fadeInRight animate__delay-1s">
+        <label for="volumeSlider">Volume: </label>
+        <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0">
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

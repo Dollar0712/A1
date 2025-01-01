@@ -1,0 +1,372 @@
+@font-face {
+    font-family: Centra;
+    src: url('./assets/font/CentraNo2-Bold.ttf');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: Centra;
+    src: url('./assets/font/CentraNo2-Medium.ttf');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Centra;
+    src: url('./assets/font/CentraNo2-Book.ttf');
+    font-weight: 400;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Centra', sans-serif !important;
+}
+
+body {
+    background: linear-gradient(to right, #5fbff7 30%, #ffd44a 30%);
+    height: 100vh;
+    width: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* background video */
+.video-background {
+    position: absolute; 
+    top: 0;
+    right: 0;
+    width: 70%;
+    height: 100%; 
+    z-index: -1;
+    overflow: hidden;
+}
+
+video {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover;
+}
+
+/* Volume control container style */
+.volume-control {
+    position: absolute;
+    bottom: 100px;
+    right: 50px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+#volumeSlider {
+    margin-left: 10px;
+    width: 120px;
+    appearance: none; /* 去掉默认样式 */
+    height: 5px;
+    background: #5fbff7;
+    border-radius: 5px;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+#volumeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #ffd44a;
+    background-size: contain;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#volumeSlider::-moz-range-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #ffd44a;
+    background-size: contain;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* background animation */
+.flash-1 {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 20%;
+    height: 100%;
+    background: white;
+    transform: skewX(30deg);
+    animation: flash-slide-1 0.3s ease-in forwards;
+}
+
+.flash-2 {
+    position: absolute;
+    top: 0;
+    left: -70%;
+    width: 10%;
+    height: 100%;
+    background: white;
+    transform: skewX(30deg);
+    animation: flash-slide-2 0.3s ease-in forwards;
+}
+
+.flash-1, .flash-2 {
+    overflow: hidden;
+}
+
+/* flash animation */
+@keyframes flash-slide-1 {
+    0% {
+        left: -80%;
+    }
+    
+    100% {
+        left: 160%;
+    }
+}
+
+@keyframes flash-slide-2 {
+    0% {
+        left: -50%;
+    }
+    
+    100% {
+        left: 190%;
+    }
+}
+
+#side-title {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-size: 60vh;
+    color: #ffd44a;
+    text-shadow: 0.1vh 0.1vh 0.741vh #000;
+    position: relative;
+    top: 0;
+    left: 0%;
+    width: 60vh;
+    overflow: hidden;
+    animation: fadeIn 0.3s ease;
+}
+
+#form-container {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    max-width: 500px;
+    width: 80%;
+    left: -10%;
+    border-radius: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+#form-container h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#form-container button {
+    display: block;
+    margin: 10px auto;
+}
+
+#form-container .input-container {
+    position: relative;
+    height: 50px;
+    border-bottom: 2px solid black;
+    margin: 30px 0;
+}
+
+
+#form-container .input-container label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+}
+
+#form-container .input-container input:focus~label,
+#form-container .input-container input:not(:placeholder-shown)~label {
+    top: -13px;
+}
+
+
+#form-container .input-container input {
+    padding-left: 5px;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+/* CSS for password */
+#form-container .input-container #password {
+    padding-right: 10%;
+    width: 90%;
+}
+
+#form-container .input-container .password-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    transform: translateY(-50%);
+    opacity: 0;
+}
+
+#form-container .input-container input:not(:placeholder-shown):valid  ~ .password-icon {
+    content: url(assets/icon/accept.png);
+    opacity: 1;
+    animation: fadeIn 0.3s ease;
+}
+
+
+#form-container .input-container input:not(:placeholder-shown):invalid  ~ .password-icon {
+    content: url(assets/icon/delete-button.png);
+    opacity: 1;
+    animation: fadeIn 0.3s ease;
+}
+
+/* CSS for dob */
+#form-container #birthday{
+    all: unset;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+#form-container #birthday label{
+    all: unset;
+    width: 30%;
+    margin-right: 10px;
+}
+
+#form-container #birthday input{
+    all: unset;
+    border-bottom: 2px solid black;
+    width: 70%;
+    height: 100%;
+}
+
+/* CSS for gender */
+#form-container #gender {
+    all: unset;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+
+#form-container #gender #title {
+    width: 40%;
+}
+#form-container #gender label {
+    all: unset;
+    display: flex;
+    flex-grow: 1;
+    margin-left: 40px;
+}
+
+#form-container #gender input[type="radio"] {
+    width: 20px;
+    margin-left: 5px;
+}
+
+/* CSS for about me */
+#form-container #about {
+    all: unset;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#form-container #about label{
+    all: unset;
+    margin-bottom: 10px;
+}
+
+#form-container #about textarea {
+    padding-left: 5px;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid black;
+    border-radius: 5px;
+    outline: none;
+    resize: none;
+    margin-bottom: 30px;
+}
+
+/* CSS for profession */
+#form-container #profession {
+    all: unset;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#form-container #profession * {
+    display: flex;
+    flex-grow: 1;
+}
+
+#form-container #profession label{
+    all: unset;
+    margin-right: 10px;
+}
+
+#form-container #profession select{
+    padding: 10px 0 10px 5px;
+    width: 70%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid black;
+    border-radius: 3px;
+    outline: none;
+}
+
+/* CSS for submit button */
+#submit {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+#submit button {
+    width: 60%;
+    height: 100%;
+    padding: 10px 0;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: medium;
+    cursor: pointer;
+    transition: all .2s ease;
+    background-color: #ffd44a;
+    
+    z-index: 2;
+}
+
+#submit button:hover {
+    background-color: #5fbff7;
+}
